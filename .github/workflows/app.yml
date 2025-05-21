@@ -12,7 +12,7 @@ on:
 jobs:
   docker_push_staging:
     runs-on: ubuntu-latest
-    if: github.ref != 'refs/heads/main'
+    if: github.ref != 'refs/heads/master'
     steps:
       - uses: actions/checkout@v4
       - # Add support for more platforms with QEMU (optional)
@@ -35,7 +35,7 @@ jobs:
           tags: ghcr.io/${{ github.repository_owner }}/wbr-app:rc.${{ github.run_number }}
   docker_push_production:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/master'
     steps:
       - uses: actions/checkout@v4
       - # Add support for more platforms with QEMU (optional)
